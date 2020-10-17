@@ -51,8 +51,7 @@ class DataBaseClient(Client):
         """
         if conn_config is not None:
             for database in conn_config:
-                if isinstance(database, ConfigTree):
-                    self.create_client(database['name'], database['uri'])
+                self.create_client(database['name'], database['uri'])
         return self.__instance
 
     def create_client(self, name: str, uri: str):
