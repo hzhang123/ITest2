@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
 
-from itest2.exceptions import TimeoutException
+from itest2.core.exceptions import TimeoutException
 
 POLL_FREQUENCY = 0.5  # How long to sleep inbetween calls to the method
 # exceptions ignored during calls to the method

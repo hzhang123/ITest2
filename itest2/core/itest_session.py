@@ -5,8 +5,8 @@ import logging
 
 import curlify
 import os
-from itest2.json_schema import (validate_from_file, generate_to_file)
-from itest2.response_assert import StatusCodeChecker
+from itest2.core.json_schema import (validate_from_file, generate_to_file)
+from itest2.core.response_assert import StatusCodeChecker
 from hamcrest import assert_that, is_
 
 

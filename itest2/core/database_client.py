@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from itest2.client import Client
+from itest2.core.client import Client
 import records
 import logging
 

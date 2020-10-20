@@ -4,7 +4,7 @@ import allure
 import os
 
 from itest2 import http_clients, Resources
-from itest2.itest_session import ItestSession
+from itest2.core.itest_session import ItestSession
 from .ext import root_dir
 
 

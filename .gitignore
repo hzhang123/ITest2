@@ -1,5 +1,8 @@
+# Temp file
 __pycache__/
 tmp
 .pytest_cache
 dist
 itest2.egg-info
+# Config file
+.vscode

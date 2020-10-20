@@ -3,8 +3,8 @@
 import os
 import logging
 
-from itest2.client import Client
-from itest2.itest_session import ItestSession
+from itest2.core.client import Client
+from itest2.core.itest_session import ItestSession
 
 
 CLIENT_TYPE = (ItestSession, )

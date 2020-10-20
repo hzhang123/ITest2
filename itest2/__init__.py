@@ -2,11 +2,11 @@
 
 __version__ = '0.1.0'
 
-from itest2.wait import IWait
-from itest2.resources import Resources
-from itest2.http_client import _HTTP_CLIENTS as http_clients
-from itest2.database_client import _DB_CLIENTS as db_clients
-from itest2 import json_schema
+from itest2.core.wait import IWait
+from itest2.core.resources import Resources
+from itest2.core.http_client import _HTTP_CLIENTS as http_clients
+from itest2.core.database_client import _DB_CLIENTS as db_clients
+from itest2.core import json_schema
 
 __all__ = [
     'IWait',

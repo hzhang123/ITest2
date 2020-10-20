@@ -2,7 +2,7 @@
 name = "itest2"
 version = "0.1.0"
 description = ""
-authors = ["ZhangHao <zhanghao@growingio.com>"]
+authors = ["ZhangHao <1510647999@qq.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
