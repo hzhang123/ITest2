@@ -7,13 +7,13 @@ import logging
 CLIENT_TYPE = (records.Database, )
 
 
-class DataBaseClient(Client):
+class DataBaseClientManage(Client):
     """
     数据库连接管理
     example:
-        DBClient.create_clients(conf.databases)
-        all = DBClient.client('moon').query('SELECT * FROM test_table LIMIT 10')
-        DBClient.close()
+        db_client_manage.create_clients(conf.databases)
+        all = db_client_manage.client('moon').query('SELECT * FROM test_table LIMIT 10')
+        db_client_manage.close_all()
     """
 
     __instance = None
@@ -23,7 +23,7 @@ class DataBaseClient(Client):
 
     def __new__(cls, *args, **kwargs):
         if not cls.__instance:
-            cls.__instance = super(DataBaseClient, cls).__new__(
+            cls.__instance = super(DataBaseClientManage, cls).__new__(
                 cls, *args, **kwargs)
         return cls.__instance
 
@@ -75,4 +75,4 @@ class DataBaseClient(Client):
 
 
 # 初始化一个实例
-_DB_CLIENTS = DataBaseClient()
+db_client_manage = DataBaseClientManage()

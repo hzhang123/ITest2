@@ -10,7 +10,7 @@ from itest2.core.itest_session import ItestSession
 CLIENT_TYPE = (ItestSession, )
 
 
-class HttpClient(Client):
+class HttpClientManage(Client):
     """
     ItestSession管理类，包含ItestSession创建（创建后的对象添加到HttpClient）、ItestSession获取（可根据name获取）
     example:
@@ -19,13 +19,15 @@ class HttpClient(Client):
     """
 
     __instance = None
+    __default_session = ItestSession()
+    __session_with_url = {}
     clz = {}
 
     __default_headers = {}
 
     def __new__(cls, *args, **kwargs):
         if not cls.__instance:
-            cls.__instance = super(HttpClient, cls).__new__(
+            cls.__instance = super(HttpClientManage, cls).__new__(
                 cls, *args, **kwargs)
         return cls.__instance
 
@@ -63,7 +65,7 @@ class HttpClient(Client):
 
         return self.__instance
 
-    def create_client(self, name: str, base_url: str, headers: dict = {}):
+    def create_client(self, name: str, base_url: str, headers: dict = {}, new_session: bool = True):
         """
         创建 ItestSession
         :param name:
@@ -71,7 +73,10 @@ class HttpClient(Client):
         :param headers:
         :return:
         """
-        session = ItestSession()
+        if new_session:
+            session = ItestSession()
+        else:
+            session = self.__default_session
         session.headers.update(headers)
         session.base_url = base_url
         self.__instance.__setattr__(name, session)
@@ -87,4 +92,4 @@ class HttpClient(Client):
 
 
 # 初始化一个实例
-_HTTP_CLIENTS = HttpClient()
+http_client_manage = HttpClientManage()

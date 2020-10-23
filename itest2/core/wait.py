@@ -8,7 +8,7 @@ POLL_FREQUENCY = 0.5  # How long to sleep inbetween calls to the method
 IGNORED_EXCEPTIONS = (TimeoutException,)
 
 
-class IWait(object):
+class Wait(object):
     """
     传入对象和超时时间，默认每0.5s调用一次lambda表达式，判断成立/不成立
     """
@@ -20,11 +20,12 @@ class IWait(object):
         """
         显性等待，指定等待时间判断方法执行输出成立、输出不成立
         Example:
-            from TestUtils.http_client import HttpClient
+            from itest2 import http_client_manage
+            from itest2 import db_client_manage
 
-            IWait(HttpClient, 8).until(lambda x: x.client('main').get('/test').status_code == 200)
-            IWait(DBClient, 10).until_not(
-            lambda x: x.client('growing').query(
+            IWait(http_client_manage, 8).until(lambda x: x.client('main').get('/test').status_code == 200)
+            IWait(db_client_manage, 10).until_not(
+            lambda x: x.client('default').query(
                 'select state from table where id = 10')[0][0] == 'activated'
         )
         :param obj:
